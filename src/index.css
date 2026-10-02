@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+html, body, #root {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@supports (min-height: 100dvh) {
+  html, body, #root {
+    min-height: 100dvh;
+  }
+}
+
+*, *::before, *::after {
+  unicode-bidi: plaintext;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  unicode-bidi: plaintext;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input, textarea, [contenteditable="true"] {
+  unicode-bidi: plaintext;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+select, button {
+  unicode-bidi: plaintext;
+  user-select: none;
+  -webkit-user-select: none;
+}
