@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { ProjectState, LyricLine, type ChallengeConfig as ChallengeConfigType } from '../../types';
-import { Settings2, ArrowRight, CornerDownRight, Plus, Minus, Layers, ShieldCheck, Clock, AlertTriangle } from 'lucide-react';
+import { Settings2, CornerDownRight, Plus, Minus, Layers, ShieldCheck, Clock, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { isRTLText, isPunctuationOnly, getSelectableWordsForLines } from '../../utils';
 
 interface Props {
   state: ProjectState | null;
   updateState: (s: Partial<ProjectState>) => void;
-  onNext: () => void;
+  onNext?: () => void;
 }
 
-export default function ChallengeConfig({ state, updateState, onNext }: Props) {
+export default function ChallengeConfig({ state, updateState }: Props) {
   const [activeEditorLine, setActiveEditorLine] = useState<number | null>(null);
 
   const lyrics = state?.lyrics || [];
@@ -659,16 +659,6 @@ export default function ChallengeConfig({ state, updateState, onNext }: Props) {
             </div>
           );
         })}
-      </div>
-
-      <div className="flex justify-end">
-        <button 
-          onClick={onNext}
-          className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg shadow-indigo-600/20 cursor-pointer"
-        >
-          <span>Next: Send to Chat</span>
-          <ArrowRight size={18} />
-        </button>
       </div>
     </div>
   );

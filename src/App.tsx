@@ -79,7 +79,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans">
       {/* Navbar */}
-      <header className="bg-zinc-900 border-b border-zinc-800 px-2 sm:px-4 py-1.5 sm:py-2 sticky top-0 z-50">
+      <header className="bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800 px-2 sm:px-4 py-1.5 sm:py-2 sticky top-0 z-50 shadow-md">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="w-8 shrink-0"></div>
 
@@ -130,9 +130,9 @@ export default function App() {
             transition={{ duration: 0.2 }}
             className="h-full w-full"
           >
-            {activeTab === 'dashboard' && <Dashboard state={projectState} updateState={handleUpdateState} onNext={() => { window.scrollTo(0, 0); setActiveTab('sync'); }} />}
+            {activeTab === 'dashboard' && <Dashboard state={projectState} updateState={handleUpdateState} />}
             {activeTab === 'sync' && <LyricSync state={projectState} updateState={handleUpdateState} onNext={() => { window.scrollTo(0, 0); setActiveTab('config'); }} />}
-            {activeTab === 'config' && <ChallengeConfig state={projectState} updateState={handleUpdateState} onNext={() => { window.scrollTo(0, 0); setActiveTab('packager'); }} />}
+            {activeTab === 'config' && <ChallengeConfig state={projectState} updateState={handleUpdateState} />}
             {activeTab === 'packager' && <Packager state={projectState} />}
             {activeTab === 'preview' && <PlayerPreview state={projectState} />}
           </motion.div>

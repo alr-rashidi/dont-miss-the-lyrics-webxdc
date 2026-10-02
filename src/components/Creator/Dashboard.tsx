@@ -1,16 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ProjectState } from '../../types';
-import { Image as ImageIcon, Music, ArrowRight, Sparkles, Sliders, CheckCircle2, User, X } from 'lucide-react';
+import { Image as ImageIcon, Music, Sparkles, Sliders, CheckCircle2, User, X } from 'lucide-react';
 import { createObjectUrl } from '../../utils';
 import { extractAudioMetadata } from '../../services/MetadataParser';
 
 interface Props {
   state: ProjectState | null;
   updateState: (s: Partial<ProjectState>) => void;
-  onNext: () => void;
+  onNext?: () => void;
 }
 
-export default function Dashboard({ state, updateState, onNext }: Props) {
+export default function Dashboard({ state, updateState }: Props) {
   const [coverUrl, setCoverUrl] = useState<string | null>(null);
   const [isDraggingMedia, setIsDraggingMedia] = useState(false);
   const [isDraggingCover, setIsDraggingCover] = useState(false);
@@ -377,18 +377,6 @@ export default function Dashboard({ state, updateState, onNext }: Props) {
             placeholder="Write a brief intro or rules for players..."
           />
         </div>
-      </div>
-
-      {/* Bottom Continue Action */}
-      <div className="flex justify-end pt-2">
-        <button 
-          onClick={onNext}
-          disabled={!state?.media.file || !state?.metadata.title}
-          className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 disabled:bg-zinc-800 disabled:text-zinc-600 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-indigo-600/20 active:scale-95 cursor-pointer disabled:cursor-not-allowed"
-        >
-          <span>Next: Sync Lyrics</span>
-          <ArrowRight size={18} />
-        </button>
       </div>
     </div>
   );
