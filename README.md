@@ -9,7 +9,6 @@
 - 📝 **Lyric sync** — Add lines, mark instrumentals, set timestamps while the track plays, or import an LRC file
 - 🧩 **Jumbled blanks** — Hide words on one or more lines; players drag the shuffled tokens back into place under a time limit and error budget
 - ❓ **Multiple-choice challenges** — Turn a line into a 4-option quiz with a correct answer and optional explanation
-- 📋 **Pre- & post-game questions** — Optional quiz rounds before the song starts and after it ends
 
 ## Screenshot
 
